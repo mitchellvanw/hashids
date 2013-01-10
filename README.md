@@ -2,7 +2,8 @@
 
 This bundle uses the classes made by: http://www.hashids.org/
 
-`Generate hashes from numbers, like YouTube or Bitly. Use hashids when you do not want to expose your database ids to the user.`
+<b>Generate hashes from numbers, like YouTube or Bitly.
+Use hashids when you do not want to expose your database ids to the user.</b>
 
 Hashids has two classes, one for PHP 5.4 and the other one for PHP 5.3.
 You won't need to worry about which file is loaded, because the bundle checks
@@ -65,5 +66,6 @@ $hash = $hasher->decrypt(1, 21, 12, 12, 666);
 
 ## That's it!
 For the documentation written by the owner of hashids: https://github.com/ivanakimov/hashids.php
+
 Hope you will enjoy this bundle
-and thanks to Ivan Akimov (@ivanakimov) for making Hashids.
+and thanks to Ivan Akimov ([@ivanakimov](http://twitter.com/ivanakimov "@ivanakimov")) for making Hashids.
