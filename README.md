@@ -1,6 +1,6 @@
 #Hashids for Laravel 3
 
-This bundle uses the classes made by: http://www.hashids.org/
+This bundle uses the classes made by [hashids.org](http://www.hashids.org/ "http://www.hashids.org/")
 
 <b>Generate hashes from numbers, like YouTube or Bitly.
 Use hashids when you do not want to expose your database ids to the user.</b>
@@ -93,7 +93,7 @@ array (size=1)
 ```
 
 ## That's it!
-For the documentation written by the owner of hashids: https://github.com/ivanakimov/hashids.php
+For the documentation written by the owner of hashids, [click here](https://github.com/ivanakimov/hashids.php "https://github.com/ivanakimov/hashids.php")
 
 Hope you will enjoy this bundle
 and thanks to Ivan Akimov ([@ivanakimov](http://twitter.com/ivanakimov "@ivanakimov")) for making Hashids.
