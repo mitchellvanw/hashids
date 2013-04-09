@@ -19,16 +19,5 @@ Autoloader::namespaces(array(
 // and Dependency Injection
 IoC::register('hashids', function() use ($config)
 {
-	$version = floatval(phpversion());
-
-	if ($version >= '5.4')
-	{
-		$hashids = new Hashids\Libraries\hashids($config['salt'], $config['length']);
-	}
-	else
-	{
-		$hashids = new Hashids\Libraries\hashids53($config['salt'], $config['length']);
-	}
-
-	return $hashids;
+	return new Hashids\Libraries\hashids($config['salt'], $config['length']);
 });
