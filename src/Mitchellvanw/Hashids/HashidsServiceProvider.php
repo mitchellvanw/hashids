@@ -30,9 +30,12 @@ class HashidsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['hashids'] = $this->app->share(function($app)
+		$salt   = $this->getSalt();
+		$legnth = $this->getLength();
+
+		$this->app['hashids'] = $this->app->share(function($app) use ($salt, $length)
 		{
-			return new Hashids($this->getSalt(), $this->getLength());
+			return new Hashids($salt, $length);
 		});
 	}
 
@@ -54,6 +57,7 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function getSalt()
 	{
 		$salt = $this->getConfigItem('salt');
+		
 		if (! $salt) {
 			throw new UndefinedSaltException('No salt has been set in the configuration.');
 		}
