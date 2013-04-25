@@ -46,6 +46,11 @@ class HashidsServiceProvider extends ServiceProvider {
 		return array('hashids');
 	}
 
+	/**
+	 * Get the length used for encrypting and decrypting hashes.
+	 *
+	 * @return string
+	 */
 	protected function getSalt()
 	{
 		$salt = $this->getConfigItem('salt');
@@ -56,11 +61,21 @@ class HashidsServiceProvider extends ServiceProvider {
 		return $salt;
 	}
 
+	/**
+	 * Get the length used for the length of the hash.
+	 *
+	 * @return string
+	 */
 	protected function getLength()
 	{
 		return $this->getConfigItem('length');
 	}
 
+	/**
+	 * Get an item from the configuration.
+	 *
+	 * @return mixed
+	 */
 	protected function getConfigItem($name)
 	{
 		return $this->app['config']->get('hashids::'.$name);
