@@ -8,9 +8,11 @@ Use hashids when you do not want to expose your database ids to the user.</b>
 ## Installation
 Begin by installing the package through Composer. Edit your project's `composer.json` file to require `mitchellvanw/hashids`.
 
+  ```php
   "require": {
     "mitchellvanw/hashids": "dev-master"
   }
+  ```
 
 Next use Composer to update your project from the the Terminal:
 
@@ -28,7 +30,7 @@ Now last but not least you need to publish to package configuration from your Te
 
   php artisan config:publish mitchellvanw/hashids
 
-And voila!
+<b>And voila!</b>
 
 The only thing which is left to do is add a salt to the configuration and you are good to go! Add the salt here: `app/config/packages/mitchellvanw/hashids/config.php`.
 
