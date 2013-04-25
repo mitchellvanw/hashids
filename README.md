@@ -16,19 +16,27 @@ Begin by installing the package through Composer. Edit your project's `composer.
 
 Next use Composer to update your project from the the Terminal:
 
+  ```php
   composer update
+  ```
 
 Once the package has been installed you'll need to add the service provider. Open your `app/config/app.php` configuration file, and add a new item to the `providers` array.
 
+  ```php
   'Mitchellvanw\Hashids\HashidsServiceProvider'
+  ```
 
 After doing this you also need to add an alias. In your `app/config/app.php` file, add this to the `aliases` array.
 
+  ```php
   'Hashids' => 'Mitchellvanw\Hashids\Facades\Hashids'
+  ```
 
 Now last but not least you need to publish to package configuration from your Terminal:
 
+  ```php
   php artisan config:publish mitchellvanw/hashids
+  ```
 
 <b>And voila!</b>
 
@@ -40,23 +48,30 @@ Once you've followed all the steps and completed the installation you can use Ha
 ### Encrypting
 You can simply encrypt on id:
 
+  ```php
   Hashids::encrypt(1); // Creating hash... Ri7Bi
+  ```
 
 or multiple..
 
+  ```php
   Hashids::encrypt(1, 21, 12, 12, 666); // Creating hash... MMtaUpSGhdA
+  ```
 
 ### Decrypting
 It's the same thing but the other way around:
 
+  ```php
   Hashids::decrypt(Ri7Bi);
 
   // Returns
   array (size=1)
     0 => int 1
+  ```
 
 or multiple..
 
+  ```php
   Hashids::decrypt(MMtaUpSGhdA);
 
   // Returns
@@ -66,6 +81,7 @@ or multiple..
     2 => int 12
     3 => int 12
     4 => int 666
+  ```
 
 ## That's it!
 For documentation about Hashids itself, go to: https://github.com/ivanakimov/hashids.php.
