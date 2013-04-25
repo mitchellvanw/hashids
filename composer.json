@@ -1,0 +1,21 @@
+{
+    "name": "mitchellvanw/hashids",
+    "description": "Laravel package for Hashids",
+    "authors": [
+        {
+            "name": "Mitchell van Wijngaarden",
+            "email": "hey@mitchellvanwijngaarden.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "hashids/hashids": "0.3.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mitchellvanw\\Hashids": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
