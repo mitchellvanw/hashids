@@ -49,7 +49,7 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function getSalt()
 	{
 		$salt = $this->getConfigItem('salt');
-		if ( ! $salt) {
+		if (! $salt) {
 			throw new UndefinedSaltException('No salt has been set in the configuration.');
 		}
 
