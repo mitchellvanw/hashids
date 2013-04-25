@@ -28,14 +28,37 @@ class HashidsServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
+
 	public function register()
 	{
-		$salt   = $this->getSalt();
-		$legnth = $this->getLength();
+		$this->registerHashidsSalt();
 
-		$this->app['hashids'] = $this->app->share(function($app) use ($salt, $length)
+		$this->registerHashidsLength();
+
+		$this->registerHashids();
+	}
+
+	protected function registerHashidsSalt()
+	{
+		$this->app->bind('hashids.salt', function()
 		{
-			return new Hashids($salt, $length);
+			return $this->getSalt();
+		});
+	}
+
+	protected function registerHashidsLength()
+	{
+		$this->app->bind('hashids.length', function()
+		{
+			return $this->getLength();
+		});
+	}
+
+	protected function registerHashids()
+	{
+		$this->app['hashids'] = $this->app->share(function($app)
+		{
+			return new Hashids($app->make('hashids.salt'), $app->make('hashids.length'));
 		});
 	}
 
