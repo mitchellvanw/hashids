@@ -40,16 +40,6 @@ class HashidsServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array('hashids');
-	}
-
-	/**
 	 * Get the length used for encrypting and decrypting hashes.
 	 *
 	 * @return string
@@ -57,7 +47,7 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function getSalt()
 	{
 		$salt = $this->getConfigItem('salt');
-		
+
 		if (! $salt) {
 			throw new UndefinedSaltException('No salt has been set in the configuration.');
 		}
@@ -83,6 +73,16 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function getConfigItem($name)
 	{
 		return $this->app['config']->get('hashids::'.$name);
+	}
+
+	/**
+	 * Get the services provided by the provider.
+	 *
+	 * @return array
+	 */
+	public function provides()
+	{
+		return array('hashids');
 	}
 
 }
