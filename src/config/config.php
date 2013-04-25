@@ -2,7 +2,7 @@
 
 return array(
 
-	'salt'   => 'lhjlbnljknrgoehrgoier#@#$@#$wdgfer',
+	'salt'   => 'change_this_salt',
 
 	'length' => 5,
 
