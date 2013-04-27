@@ -1,5 +1,5 @@
 {
-    "name": "mitchellvanw/hashids",
+    "name": "mitch/hashids",
     "description": "Laravel package for Hashids",
     "authors": [
         {
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Mitchellvanw\\Hashids": "src/"
+            "Mitch\\Hashids": "src/"
         }
     },
     "minimum-stability": "dev"
