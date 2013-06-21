@@ -35,6 +35,8 @@ class HashidsServiceProvider extends ServiceProvider {
 
 		$this->registerHashidsLength();
 
+		$this->registerHashidsAlphabet();
+
 		$this->registerHashids();
 	}
 
