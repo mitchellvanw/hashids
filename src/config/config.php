@@ -2,7 +2,7 @@
 
 return array(
 
-	'salt'   => 'change_this_salt',
+	'salt'   => Config::get('app.salt'),
 
 	'length' => 5,
 
