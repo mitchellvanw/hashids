@@ -4,6 +4,6 @@ return array(
 
 	'salt'   => Config::get('app.key'),
 
-	'length' => 5,
+	'length' => 9,
 
 );
