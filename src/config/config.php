@@ -2,7 +2,7 @@
 
 return array(
 
-	'salt'   => Config::get('app.salt'),
+	'salt'   => Config::get('app.key'),
 
 	'length' => 5,
 
