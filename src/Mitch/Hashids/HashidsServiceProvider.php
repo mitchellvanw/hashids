@@ -35,6 +35,8 @@ class HashidsServiceProvider extends ServiceProvider {
 
 		$this->registerHashidsLength();
 
+		$this->registerHashidsAlphabet();
+
 		$this->registerHashids();
 	}
 
@@ -54,11 +56,19 @@ class HashidsServiceProvider extends ServiceProvider {
 		});
 	}
 
+	protected function registerHashidsAlphabet()
+	{
+		$this->app->bind('hashids.alphabet', function()
+		{
+			return $this->getAlphabet();
+		});
+	}
+
 	protected function registerHashids()
 	{
 		$this->app['hashids'] = $this->app->share(function($app)
 		{
-			return new Hashids($app->make('hashids.salt'), $app->make('hashids.length'));
+			return new Hashids($app->make('hashids.salt'), $app->make('hashids.length'), $app->make('hashids.alphabet'));
 		});
 	}
 
@@ -86,6 +96,16 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function getLength()
 	{
 		return $this->app['config']['hashids::length'];
+	}
+
+	/**
+	 * Get the alphabet used as base for encrypting and decrypting hashes.
+	 *
+	 * @return string
+	 */
+	protected function getAlphabet()
+	{
+		return $this->app['config']['hashids::alphabet'];
 	}
 
 	/**

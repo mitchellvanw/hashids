@@ -2,8 +2,10 @@
 
 return array(
 
-	'salt'   => 'change_this_salt',
+	'salt'     => 'change_this_salt',
 
-	'length' => 5,
+	'length'   => 0,
+
+	'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
 );
