@@ -1,4 +1,4 @@
-<?php namespace Mitch\Hashids\Facades;
+<?php namespace Mitch\Hashids;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,6 +9,6 @@ class Hashids extends Facade {
      *
      * @return object
      */
-    protected static function getFacadeAccessor(){ return 'hashids'; }
+    protected static function getFacadeAccessor() { return 'hashids'; }
 
 }

@@ -1,17 +1,9 @@
 <?php namespace Mitch\Hashids;
 
 use Hashids\Hashids;
-use Mitch\Hashids\Exceptions\UndefinedSaltException;
 use Illuminate\Support\ServiceProvider;
 
 class HashidsServiceProvider extends ServiceProvider {
-
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
 
 	/**
 	 * Bootstrap the application events.
@@ -31,44 +23,16 @@ class HashidsServiceProvider extends ServiceProvider {
 
 	public function register()
 	{
-		$this->registerHashidsSalt();
-
-		$this->registerHashidsLength();
-
-		$this->registerHashidsAlphabet();
-
 		$this->registerHashids();
-	}
-
-	protected function registerHashidsSalt()
-	{
-		$this->app->bind('hashids.salt', function()
-		{
-			return $this->getSalt();
-		});
-	}
-
-	protected function registerHashidsLength()
-	{
-		$this->app->bind('hashids.length', function()
-		{
-			return $this->getLength();
-		});
-	}
-
-	protected function registerHashidsAlphabet()
-	{
-		$this->app->bind('hashids.alphabet', function()
-		{
-			return $this->getAlphabet();
-		});
 	}
 
 	protected function registerHashids()
 	{
-		$this->app['hashids'] = $this->app->share(function($app)
+		$me = $this;
+
+		$this->app->bind('hashids', function ($app) use ($me)
 		{
-			return new Hashids($app->make('hashids.salt'), $app->make('hashids.length'), $app->make('hashids.alphabet'));
+			return new Hashids($me->getSalt(), $me->getLength(), $me->getAlphabet());
 		});
 	}
 
@@ -81,8 +45,8 @@ class HashidsServiceProvider extends ServiceProvider {
 	{
 		$salt = $this->app['config']['hashids::salt'];
 
-		if (! $salt) {
-			throw new UndefinedSaltException('No salt has been set in the configuration.');
+		if ( ! $salt) {
+			$salt = $this->app['config']['app.key'];
 		}
 
 		return $salt;

@@ -6,11 +6,11 @@ This package uses the classes created by [hashids.org](http://www.hashids.org/ "
 Use hashids when you do not want to expose your database ids to the user.</b>
 
 ## Installation
-Begin by installing the package through Composer. Edit your project's `composer.json` file to require `mitchellvanw/hashids`.
+Begin by installing the package through Composer. Edit your project's `composer.json` file to require `mitch/hashids`.
 
   ```php
   "require": {
-    "mitchellvanw/hashids": "dev-master"
+    "mitch/hashids": "dev-master"
   }
   ```
 
@@ -23,19 +23,19 @@ Next use Composer to update your project from the the Terminal:
 Once the package has been installed you'll need to add the service provider. Open your `app/config/app.php` configuration file, and add a new item to the `providers` array.
 
   ```php
-  'Mitchellvanw\Hashids\HashidsServiceProvider'
+  'Mitch\Hashids\HashidsServiceProvider'
   ```
 
 After doing this you also need to add an alias. In your `app/config/app.php` file, add this to the `aliases` array.
 
   ```php
-  'Hashids' => 'Mitchellvanw\Hashids\Facades\Hashids'
+  'Hashids' => 'Mitch\Hashids\Hashids'
   ```
 
 Now last but not least you need to publish to package configuration from your Terminal:
 
   ```php
-  php artisan config:publish mitchellvanw/hashids
+  php artisan config:publish mitch/hashids
   ```
 
 <b>And voila!</b>
