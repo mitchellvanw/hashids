@@ -62,7 +62,7 @@ or multiple..
 It's the same thing but the other way around:
 
   ```php
-  Hashids::decrypt(Ri7Bi);
+  Hashids::decrypt('Ri7Bi');
 
   // Returns
   array (size=1)
@@ -72,7 +72,7 @@ It's the same thing but the other way around:
 or multiple..
 
   ```php
-  Hashids::decrypt(MMtaUpSGhdA);
+  Hashids::decrypt('MMtaUpSGhdA');
 
   // Returns
   array (size=5)
@@ -81,6 +81,35 @@ or multiple..
     2 => int 12
     3 => int 12
     4 => int 666
+  ```
+### Injecting Hashids
+Now it's also possible to have Hashids injected into your class.
+Lets look at this controller as an example..
+
+  ```php
+  class ExampleController extends BaseController
+  {
+      protected $hashids;
+
+      public function __construct(Hashids\Hashids $hashids)
+      {
+          $this->hashids = $hashids;
+      }
+
+      public function getIndex()
+      {
+          $hash = $this->hashids->encrypt(1);
+          return View::make('example.index', compact('hash'));
+      }
+  }
+  ```
+The original classname and namespace has been bound in the IoC container to return our instantiated Hashids class.
+
+### Using IoC
+Create a Hashids instance with the IoC
+
+  ```php
+  App::make('Hashids\Hashids')->encrypt(1);
   ```
 
 ## That's it!

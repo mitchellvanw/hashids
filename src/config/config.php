@@ -1,11 +1,6 @@
 <?php
 
 return array(
-
-	'salt'     => null,
-
-	'length'   => 0,
-
+	'length'   => 4,
 	'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
-
 );

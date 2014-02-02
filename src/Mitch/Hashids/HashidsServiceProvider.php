@@ -3,8 +3,8 @@
 use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
-class HashidsServiceProvider extends ServiceProvider {
-
+class HashidsServiceProvider extends ServiceProvider
+{
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -29,27 +29,9 @@ class HashidsServiceProvider extends ServiceProvider {
 	protected function registerHashids()
 	{
 		$me = $this;
-
-		$this->app->bind('hashids', function ($app) use ($me)
-		{
-			return new Hashids($me->getSalt(), $me->getLength(), $me->getAlphabet());
+		$this->app->bind('Hashids\Hashids', function ($app) use ($me) {
+			return new Hashids($me['config']->get('app.key'), $me->getLength(), $me->getAlphabet());
 		});
-	}
-
-	/**
-	 * Get the length used for encrypting and decrypting hashes.
-	 *
-	 * @return string
-	 */
-	protected function getSalt()
-	{
-		$salt = $this->app['config']['hashids::salt'];
-
-		if ( ! $salt) {
-			$salt = $this->app['config']['app.key'];
-		}
-
-		return $salt;
 	}
 
 	/**
@@ -79,7 +61,6 @@ class HashidsServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('hashids');
+		return array('Hashids\Hashids');
 	}
-
 }
