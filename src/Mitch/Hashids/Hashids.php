@@ -9,6 +9,6 @@ class Hashids extends Facade {
      *
      * @return object
      */
-    protected static function getFacadeAccessor() { return 'hashids'; }
+    protected static function getFacadeAccessor() { return 'Hashids\Hashids'; }
 
 }
