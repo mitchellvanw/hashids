@@ -111,4 +111,4 @@ Create a Hashids instance with the IoC
 ## That's it!
 For documentation about Hashids itself, go to: https://github.com/ivanakimov/hashids.php.
 
-Hopefully you'll enjoy this package and thanks to Ivan Akimov (@ivanakimov) for making Hashids. All credits for the it go to him.
+Hopefully you'll enjoy this package and thanks to Ivan Akimov (@ivanakimov) for making Hashids. All credits for the Hashids package go to him.
