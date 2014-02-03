@@ -38,10 +38,6 @@ Now last but not least you need to publish to package configuration from your Te
   php artisan config:publish mitch/hashids
   ```
 
-<b>And voila!</b>
-
-The only thing which is left to do is add a salt to the configuration and you are good to go! Add the salt here: `app/config/packages/mitchellvanw/hashids/config.php`.
-
 ## Usage
 Once you've followed all the steps and completed the installation you can use Hashids.
 
