@@ -30,7 +30,7 @@ class HashidsServiceProvider extends ServiceProvider
 	{
 		$me = $this;
 		$this->app->bind('Hashids\Hashids', function ($app) use ($me) {
-			return new Hashids($me['config']->get('app.key'), $me->getLength(), $me->getAlphabet());
+			return new Hashids($me->app['config']->get('app.key'), $me->getLength(), $me->getAlphabet());
 		});
 	}
 
