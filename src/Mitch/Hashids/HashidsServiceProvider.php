@@ -28,30 +28,13 @@ class HashidsServiceProvider extends ServiceProvider
 
 	protected function registerHashids()
 	{
-		$me = $this;
-		$this->app->bind('Hashids\Hashids', function ($app) use ($me) {
-			return new Hashids($me->app['config']->get('app.key'), $me->getLength(), $me->getAlphabet());
+		$this->app->bind('Hashids\Hashids', function ($app) {
+			return new Hashids(
+				$app['config']['app.key'],
+				$app['config']['hashids::length'],
+				$app['config']['hashids::alphabet']
+			);
 		});
-	}
-
-	/**
-	 * Get the length used for the length of the hash.
-	 *
-	 * @return string
-	 */
-	protected function getLength()
-	{
-		return $this->app['config']['hashids::length'];
-	}
-
-	/**
-	 * Get the alphabet used as base for encrypting and decrypting hashes.
-	 *
-	 * @return string
-	 */
-	protected function getAlphabet()
-	{
-		return $this->app['config']['hashids::alphabet'];
 	}
 
 	/**
