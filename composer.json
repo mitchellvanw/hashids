@@ -1,5 +1,6 @@
 {
     "name": "mitch/hashids",
+    "version": "1.0",
     "description": "Laravel package for Hashids",
     "authors": [
         {
