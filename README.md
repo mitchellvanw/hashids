@@ -41,24 +41,24 @@ Now last but not least you need to publish to package configuration from your Te
 ## Usage
 Once you've followed all the steps and completed the installation you can use Hashids.
 
-### Encrypting
+### Encoding
 You can simply encrypt on id:
 
   ```php
-  Hashids::encrypt(1); // Creating hash... Ri7Bi
+  Hashids::encode(1); // Creating hash... Ri7Bi
   ```
 
 or multiple..
 
   ```php
-  Hashids::encrypt(1, 21, 12, 12, 666); // Creating hash... MMtaUpSGhdA
+  Hashids::encode(1, 21, 12, 12, 666); // Creating hash... MMtaUpSGhdA
   ```
 
-### Decrypting
+### Decoding
 It's the same thing but the other way around:
 
   ```php
-  Hashids::decrypt('Ri7Bi');
+  Hashids::decode('Ri7Bi');
 
   // Returns
   array (size=1)
@@ -68,7 +68,7 @@ It's the same thing but the other way around:
 or multiple..
 
   ```php
-  Hashids::decrypt('MMtaUpSGhdA');
+  Hashids::decode('MMtaUpSGhdA');
 
   // Returns
   array (size=5)
@@ -94,7 +94,7 @@ Lets look at this controller as an example..
 
       public function getIndex()
       {
-          $hash = $this->hashids->encrypt(1);
+          $hash = $this->hashids->encode(1);
           return View::make('example.index', compact('hash'));
       }
   }
@@ -105,10 +105,10 @@ The original classname and namespace has been bound in the IoC container to retu
 Create a Hashids instance with the IoC
 
   ```php
-  App::make('Hashids\Hashids')->encrypt(1);
+  App::make('Hashids\Hashids')->encode(1);
   ```
 
 ## That's it!
-For documentation about Hashids itself, go to: https://github.com/ivanakimov/hashids.php.
+Documentation about [Hashids can be found here](https://github.com/ivanakimov/hashids.php).
 
-Hopefully you'll enjoy this package and thanks to Ivan Akimov (@ivanakimov) for making Hashids. All credits for the Hashids package go to him.
+Thanks to Ivan Akimov (@ivanakimov) for making Hashids. All credits for the Hashids package go to him.
