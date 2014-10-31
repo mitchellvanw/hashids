@@ -1,4 +1,4 @@
-# Hashids for Laravel 4
+# Hashids for Laravel 4 and 5
 
 This package uses the classes created by [hashids.org](http://www.hashids.org/ "http://www.hashids.org/")
 
