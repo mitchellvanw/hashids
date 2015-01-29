@@ -30,11 +30,11 @@ class HashidsServiceProvider extends ServiceProvider
 
 	protected function registerHashids()
 	{
-		$this->app->bind('Hashids\Hashids', function ($app) {
+		$this->app->bind('Hashids\Hashids', function () {
 			return new Hashids(
-				$app['config']['app.key'],
-				$app['config']['hashids.length'],
-				$app['config']['hashids.alphabet']
+				config('app.key'),
+				config('hashids.length'),
+				config('hashids.alphabet')
 			);
 		});
 	}
