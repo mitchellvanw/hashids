@@ -33,8 +33,8 @@ class HashidsServiceProvider extends ServiceProvider
 		$this->app->bind('Hashids\Hashids', function ($app) {
 			return new Hashids(
 				$app['config']['app.key'],
-				$app['config']['hashids::length'],
-				$app['config']['hashids::alphabet']
+				$app['config']['hashids.length'],
+				$app['config']['hashids.alphabet']
 			);
 		});
 	}
