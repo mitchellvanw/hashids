@@ -12,7 +12,9 @@ class HashidsServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->package('mitch/hashids');
+		$configPath = __DIR__ . '/../../config/hashids.php';
+		$this->mergeConfigFrom($configPath, 'hashids');
+		$this->publishes([$configPath => config_path('hashids.php')]);
 	}
 
 	/**
