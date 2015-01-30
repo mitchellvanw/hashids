@@ -8,16 +8,8 @@ Use hashids when you do not want to expose your database ids to the user.</b>
 ## Installation
 Begin by installing the package through Composer. Edit your project's `composer.json` file to require `mitch/hashids`.
 
-  ```php
-  "require": {
-    "mitch/hashids": "1.x"
-  }
-  ```
-
-Next use Composer to update your project from the the Terminal:
-
-  ```php
-  php composer.phar update
+  ```bash
+  $ composer require mitch/hashids
   ```
 
 Once the package has been installed you'll need to add the service provider. Open your `app/config/app.php` configuration file, and add a new item to the `providers` array.
@@ -35,7 +27,7 @@ After doing this you also need to add an alias. In your `app/config/app.php` fil
 Now last but not least you need to publish to package configuration from your Terminal:
 
   ```php
-  php artisan config:publish mitch/hashids
+  php artisan vendor:publish
   ```
 
 ## Usage
