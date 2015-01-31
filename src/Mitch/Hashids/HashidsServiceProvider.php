@@ -12,7 +12,9 @@ class HashidsServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->package('mitch/hashids');
+		$this->publishes([
+			__DIR__.'/../../config/config.php' => config_path('hashids.php'),
+		]);
 	}
 
 	/**
@@ -23,6 +25,8 @@ class HashidsServiceProvider extends ServiceProvider
 
 	public function register()
 	{
+		$this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'hashids');
+
 		$this->registerHashids();
 	}
 
@@ -30,9 +34,9 @@ class HashidsServiceProvider extends ServiceProvider
 	{
 		$this->app->bind('Hashids\Hashids', function ($app) {
 			return new Hashids(
-				$app['config']['app.key'],
-				$app['config']['hashids::length'],
-				$app['config']['hashids::alphabet']
+				config('app.key'),
+				config('hashids.length'),
+				config('hashids.alphabet')
 			);
 		});
 	}
