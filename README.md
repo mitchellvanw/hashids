@@ -78,6 +78,11 @@ or multiple..
     3 => int 12
     4 => int 666
   ```
+
+### Configuration 
+
+You can set the hash length, alphabet, and salt in the package's config file. By default, laravel's application key will be used for the salt. 
+ 
 ### Injecting Hashids
 Now it's also possible to have Hashids injected into your class.
 Lets look at this controller as an example..
